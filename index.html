@@ -669,47 +669,167 @@
   }
 
   .testimonial-inner {
-    max-width: 900px;
+    max-width: 1280px;
     margin: 0 auto;
+  }
+
+  .testimonial-header {
     text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .testimonial-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-orange-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-eyebrow .stars {
+    color: var(--brand-orange);
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+
+  .testimonial-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    color: var(--brand-blue);
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .testimonial-header h2 em {
+    font-style: italic;
+    color: var(--brand-orange-deep);
+  }
+
+  .testimonial-featured {
+    background: white;
+    border-radius: 24px;
+    padding: 50px 60px;
+    margin-bottom: 24px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--blue-100);
+    position: relative;
   }
 
   .quote-mark {
     font-family: 'Fraunces', serif;
-    font-size: 120px;
-    line-height: 0.8;
+    font-size: 90px;
+    line-height: 0.7;
     color: var(--brand-orange);
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: block;
   }
 
-  .testimonial blockquote {
+  .testimonial-featured blockquote {
     font-family: 'Fraunces', serif;
-    font-size: clamp(24px, 3vw, 36px);
+    font-size: clamp(20px, 2.4vw, 28px);
     line-height: 1.4;
     color: var(--brand-blue);
     font-weight: 400;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     font-style: italic;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .testimonial cite {
+  .testimonial-featured cite {
     font-style: normal;
-    font-size: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .testimonial-featured cite strong {
+    color: var(--brand-blue);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .review-stars {
+    display: inline-flex;
+    gap: 2px;
+    color: var(--brand-orange);
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    border: 1px solid var(--blue-100);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .review-card .review-stars {
+    margin-bottom: 14px;
+  }
+
+  .review-card .review-text {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+
+  .review-card .review-author {
+    font-size: 13px;
+    color: var(--brand-blue);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .review-card .review-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .reviews-source {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 12px;
     color: var(--text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
-  .testimonial cite strong {
+  .reviews-source strong {
     color: var(--brand-blue);
     font-weight: 600;
-    display: block;
-    margin-bottom: 4px;
-    font-size: 16px;
-    text-transform: none;
-    letter-spacing: 0;
   }
 
   /* ============ CTA ============ */
@@ -889,7 +1009,8 @@
     .trust-items { gap: 24px; }
     .services, .difference, .counties, .testimonial, .final-cta { padding: 80px 24px; }
     .section-header, .counties-inner { grid-template-columns: 1fr; gap: 30px; }
-    .services-grid, .difference-grid, .footer-grid { grid-template-columns: 1fr; }
+    .services-grid, .difference-grid, .footer-grid, .reviews-grid { grid-template-columns: 1fr; }
+    .testimonial-featured { padding: 40px 28px; }
     .counties-grid { grid-template-columns: repeat(2, 1fr); }
     .cta-box { padding: 60px 30px; }
     footer { padding: 60px 24px 30px; }
@@ -1278,13 +1399,78 @@
 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
-  <div class="testimonial-inner fade-in">
-    <span class="quote-mark">"</span>
-    <blockquote>The team at Custom didn't just provide care for my mother — they became part of our family. Every nurse, every visit, every phone call was handled with a level of compassion I didn't know was possible from a home health agency.</blockquote>
-    <cite>
-      <strong>Sarah M.</strong>
-      Family member · Oakland County
-    </cite>
+  <div class="testimonial-inner">
+
+    <div class="testimonial-header fade-in">
+      <div class="testimonial-eyebrow">
+        <span class="stars">★★★★★</span>
+        <span>What Our Community Says</span>
+      </div>
+      <h2>Real stories from <em>real families.</em></h2>
+    </div>
+
+    <!-- Featured Review -->
+    <div class="testimonial-featured fade-in">
+      <span class="quote-mark">"</span>
+      <div class="review-stars">★★★★★</div>
+      <blockquote>This is my go-to home health company for my patients. The company takes almost all insurances, and they will actually call the patient and set up visits the same day the referral comes in.</blockquote>
+      <cite>
+        <strong>Julie Mattfeld</strong>
+        Referring Healthcare Professional · Google Review
+      </cite>
+    </div>
+
+    <!-- Review Cards Grid -->
+    <div class="reviews-grid">
+
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I want to thank Elise and Saeeda Khan for the excellent home nursing they provided me during my knee replacement surgery recovery. They were both friendly, courteous and knowledgeable."</p>
+        <div class="review-author">Randi Lynn Sinko</div>
+        <div class="review-meta">Patient · Post-Surgical Recovery</div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Maribeth and Carol have been wonderful working with my boyfriend who fractured his hip in a fall. So professional, competent and caring. They have really helped his healing process and road to recovery."</p>
+        <div class="review-author">Esther Beneson</div>
+        <div class="review-meta">Family Member · Hip Recovery</div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We have used Custom Home Health twice in the last year for my mom and we have been very happy. Everyone has been very nice to deal with but my mom's physical therapist (Celeste) and nurse (Leah) are fantastic!"</p>
+        <div class="review-author">Amy G</div>
+        <div class="review-meta">Family Member · Returning Client</div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I work as a nursing home Social Worker &amp; I've been working with Dion &amp; Cal at Custom HHC for many years sending them referrals. They are honestly two of the nicest people I have ever met. So easy to work with."</p>
+        <div class="review-author">Kelly Weir</div>
+        <div class="review-meta">Social Worker · Referral Partner</div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I want to thank Custom's staff for the prompt delivery of DME for a patient who was returning home under hospice services. Very professional staff, timely responses for services. Thank you so much for your compassion."</p>
+        <div class="review-author">Pat Conley</div>
+        <div class="review-meta">Healthcare Professional · Hospice</div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My mom lost both her legs and Nurse Napoleon and PT Waseem provided exceptional care and patience for our mom with a lot of positive encouragement. I highly recommend this facility."</p>
+        <div class="review-author">Crystale Mejia</div>
+        <div class="review-meta">Family Member · Complex Care</div>
+      </div>
+
+    </div>
+
+    <div class="reviews-source fade-in">
+      Verified reviews from <strong>Google</strong>
+    </div>
+
   </div>
 </section>
 
