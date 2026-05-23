@@ -15,14 +15,14 @@
     --brand-blue-darker: #1B2F6B;
     --brand-orange: #FAA62C;     /* burst icon + tagline */
     --brand-orange-deep: #E08A0A;
-
+ 
     /* Neutrals tuned to complement the brand */
     --blue-50: #f4f6fc;
     --blue-100: #e3e8f5;
     --blue-200: #c2cbe6;
     --orange-50: #fff7e8;
     --orange-100: #ffeac5;
-
+ 
     --cream: #fdfaf3;
     --warm-white: #ffffff;
     --ink: #1a1f2e;
@@ -30,11 +30,11 @@
     --shadow-soft: 0 4px 24px rgba(37, 64, 143, 0.08);
     --shadow-lift: 0 20px 60px rgba(37, 64, 143, 0.15);
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--warm-white);
@@ -42,9 +42,9 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
+ 
   .display { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; }
-
+ 
   /* ============ NAV ============ */
   nav {
     position: fixed;
@@ -58,26 +58,26 @@
     justify-content: space-between;
     align-items: center;
   }
-
+ 
   .nav-logo {
     display: flex;
     align-items: center;
     text-decoration: none;
   }
-
+ 
   .nav-logo .brand-logo {
     height: 64px;
     width: auto;
     display: block;
   }
-
+ 
   .nav-links {
     display: flex;
     gap: 36px;
     list-style: none;
     align-items: center;
   }
-
+ 
   .nav-links a {
     text-decoration: none;
     color: var(--brand-blue-dark);
@@ -86,7 +86,7 @@
     transition: color 0.3s ease;
     position: relative;
   }
-
+ 
   .nav-links a::after {
     content: '';
     position: absolute;
@@ -97,10 +97,10 @@
     background: var(--brand-orange);
     transition: width 0.3s ease;
   }
-
+ 
   .nav-links a:hover::after { width: 100%; }
   .nav-links a:hover { color: var(--brand-orange-deep); }
-
+ 
   .nav-cta {
     background: var(--brand-blue);
     color: var(--warm-white) !important;
@@ -109,10 +109,10 @@
     font-size: 13px !important;
     transition: all 0.3s ease;
   }
-
+ 
   .nav-cta:hover { background: var(--brand-orange); transform: translateY(-1px); }
   .nav-cta::after { display: none; }
-
+ 
   /* ============ HERO ============ */
   .hero {
     min-height: 100vh;
@@ -125,7 +125,7 @@
     background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
     overflow: hidden;
   }
-
+ 
   .hero::before {
     content: '';
     position: absolute;
@@ -137,7 +137,7 @@
     border-radius: 50%;
     opacity: 0.7;
   }
-
+ 
   .hero::after {
     content: '';
     position: absolute;
@@ -149,9 +149,9 @@
     border-radius: 50%;
     opacity: 0.6;
   }
-
+ 
   .hero-content { position: relative; z-index: 2; }
-
+ 
   .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -166,7 +166,7 @@
     background: var(--blue-100);
     border-radius: 100px;
   }
-
+ 
   .eyebrow::before {
     content: '';
     width: 6px; height: 6px;
@@ -174,12 +174,12 @@
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
-
+ 
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.3); }
   }
-
+ 
   .hero h1 {
     font-size: clamp(48px, 6vw, 84px);
     line-height: 1.02;
@@ -187,13 +187,13 @@
     color: var(--brand-blue);
     margin-bottom: 32px;
   }
-
+ 
   .hero h1 em {
     font-style: italic;
     color: var(--brand-orange-deep);
     font-weight: 300;
   }
-
+ 
   .hero p {
     font-size: 18px;
     color: var(--text-muted);
@@ -201,13 +201,13 @@
     max-width: 520px;
     line-height: 1.7;
   }
-
+ 
   .hero-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
   }
-
+ 
   .btn-primary {
     background: var(--brand-blue);
     color: var(--warm-white);
@@ -224,13 +224,13 @@
     gap: 10px;
     font-family: 'Inter', sans-serif;
   }
-
+ 
   .btn-primary:hover {
     background: var(--brand-orange);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lift);
   }
-
+ 
   .btn-secondary {
     background: transparent;
     color: var(--brand-blue);
@@ -247,22 +247,22 @@
     gap: 10px;
     font-family: 'Inter', sans-serif;
   }
-
+ 
   .btn-secondary:hover {
     border-color: var(--brand-blue);
     background: var(--blue-50);
   }
-
+ 
   .arrow { transition: transform 0.3s ease; }
   .btn-primary:hover .arrow, .btn-secondary:hover .arrow { transform: translateX(4px); }
-
+ 
   /* Hero Image Card */
   .hero-visual {
     position: relative;
     z-index: 2;
     height: 600px;
   }
-
+ 
   .hero-card-main {
     position: absolute;
     top: 0;
@@ -275,7 +275,7 @@
     box-shadow: var(--shadow-lift);
     padding: 0;
   }
-
+ 
   .hero-illustration {
     position: absolute;
     inset: 0;
@@ -283,7 +283,7 @@
     height: 100%;
     display: block;
   }
-
+ 
   .hero-card-glow {
     position: absolute;
     inset: 0;
@@ -293,7 +293,7 @@
     pointer-events: none;
     z-index: 1;
   }
-
+ 
   /* Decorative burst illustration — echoes the logo mark */
   .burst-decoration {
     position: absolute;
@@ -304,7 +304,7 @@
     opacity: 0.85;
     z-index: 3;
   }
-
+ 
   .hero-card-float {
     position: absolute;
     bottom: 60px;
@@ -319,12 +319,12 @@
     border: 1px solid var(--blue-100);
     animation: float 4s ease-in-out infinite;
   }
-
+ 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
-
+ 
   .float-icon {
     width: 48px;
     height: 48px;
@@ -335,19 +335,19 @@
     justify-content: center;
     flex-shrink: 0;
   }
-
+ 
   .float-text strong {
     display: block;
     font-size: 14px;
     color: var(--brand-blue);
     margin-bottom: 2px;
   }
-
+ 
   .float-text span {
     font-size: 12px;
     color: var(--text-muted);
   }
-
+ 
   /* ============ TRUST BAR ============ */
   .trust-bar {
     padding: 40px 60px;
@@ -355,7 +355,7 @@
     border-top: 1px solid var(--blue-100);
     border-bottom: 1px solid var(--blue-100);
   }
-
+ 
   .trust-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -365,7 +365,7 @@
     flex-wrap: wrap;
     gap: 40px;
   }
-
+ 
   .trust-label {
     font-size: 12px;
     color: var(--text-muted);
@@ -373,13 +373,13 @@
     letter-spacing: 0.15em;
     font-weight: 500;
   }
-
+ 
   .trust-items {
     display: flex;
     gap: 48px;
     flex-wrap: wrap;
   }
-
+ 
   .trust-item {
     font-family: 'Fraunces', serif;
     font-size: 18px;
@@ -387,14 +387,14 @@
     font-weight: 400;
     font-style: italic;
   }
-
+ 
   /* ============ SERVICES ============ */
   .services {
     padding: 120px 60px;
     max-width: 1400px;
     margin: 0 auto;
   }
-
+ 
   .section-header {
     margin-bottom: 80px;
     display: grid;
@@ -402,7 +402,7 @@
     gap: 60px;
     align-items: end;
   }
-
+ 
   .section-eyebrow {
     font-size: 13px;
     font-weight: 500;
@@ -411,32 +411,32 @@
     letter-spacing: 0.15em;
     margin-bottom: 16px;
   }
-
+ 
   .section-header h2 {
     font-size: clamp(40px, 5vw, 64px);
     line-height: 1.05;
     color: var(--brand-blue);
     font-weight: 400;
   }
-
+ 
   .section-header h2 em {
     font-style: italic;
     color: var(--brand-orange-deep);
     font-weight: 300;
   }
-
+ 
   .section-header p {
     color: var(--text-muted);
     font-size: 17px;
     line-height: 1.7;
   }
-
+ 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-
+ 
   .service-card {
     background: var(--warm-white);
     border: 1px solid var(--blue-100);
@@ -447,7 +447,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .service-card::before {
     content: '';
     position: absolute;
@@ -457,21 +457,21 @@
     transition: opacity 0.4s ease;
     z-index: 0;
   }
-
+ 
   .service-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lift);
   }
-
+ 
   .service-card:hover::before { opacity: 1; }
   .service-card:hover .service-icon,
   .service-card:hover h3,
   .service-card:hover p,
   .service-card:hover .service-link { color: var(--warm-white); }
   .service-card:hover .service-icon { background: rgba(250, 166, 44, 0.25); color: var(--brand-orange); }
-
+ 
   .service-card > * { position: relative; z-index: 1; }
-
+ 
   .service-icon {
     width: 56px;
     height: 56px;
@@ -484,7 +484,7 @@
     color: var(--brand-orange-deep);
     transition: all 0.4s ease;
   }
-
+ 
   .service-card h3 {
     font-family: 'Fraunces', serif;
     font-size: 26px;
@@ -493,7 +493,7 @@
     font-weight: 500;
     transition: color 0.4s ease;
   }
-
+ 
   .service-card p {
     color: var(--text-muted);
     font-size: 15px;
@@ -501,7 +501,7 @@
     margin-bottom: 24px;
     transition: color 0.4s ease;
   }
-
+ 
   .service-link {
     color: var(--brand-blue);
     font-size: 14px;
@@ -512,7 +512,7 @@
     gap: 8px;
     transition: color 0.4s ease;
   }
-
+ 
   /* ============ DIFFERENCE ============ */
   .difference {
     padding: 120px 60px;
@@ -521,7 +521,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .difference::before {
     content: '';
     position: absolute;
@@ -530,7 +530,7 @@
     background: radial-gradient(circle, var(--brand-blue-dark) 0%, transparent 60%);
     opacity: 0.6;
   }
-
+ 
   .difference::after {
     content: '';
     position: absolute;
@@ -538,21 +538,21 @@
     width: 400px; height: 400px;
     background: radial-gradient(circle, rgba(250,166,44,0.15) 0%, transparent 60%);
   }
-
+ 
   .difference-inner {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
   }
-
+ 
   .difference-header {
     text-align: center;
     margin-bottom: 80px;
   }
-
+ 
   .difference-header .section-eyebrow { color: var(--brand-orange); }
-
+ 
   .difference-header h2 {
     font-size: clamp(40px, 5vw, 64px);
     line-height: 1.05;
@@ -560,23 +560,23 @@
     max-width: 800px;
     margin: 0 auto;
   }
-
+ 
   .difference-header h2 em {
     font-style: italic;
     color: var(--brand-orange);
     font-weight: 300;
   }
-
+ 
   .difference-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 60px;
   }
-
+ 
   .diff-item {
     text-align: center;
   }
-
+ 
   .diff-number {
     font-family: 'Fraunces', serif;
     font-size: 80px;
@@ -587,34 +587,34 @@
     margin-bottom: 20px;
     display: block;
   }
-
+ 
   .diff-item h3 {
     font-family: 'Fraunces', serif;
     font-size: 24px;
     margin-bottom: 16px;
     font-weight: 500;
   }
-
+ 
   .diff-item p {
     color: rgba(255, 255, 255, 0.75);
     font-size: 15px;
     line-height: 1.7;
   }
-
+ 
   /* ============ COUNTIES ============ */
   .counties {
     padding: 120px 60px;
     max-width: 1400px;
     margin: 0 auto;
   }
-
+ 
   .counties-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
   }
-
+ 
   .counties-left h2 {
     font-size: clamp(40px, 5vw, 56px);
     line-height: 1.1;
@@ -622,26 +622,26 @@
     margin-bottom: 24px;
     font-weight: 400;
   }
-
+ 
   .counties-left h2 em {
     font-style: italic;
     color: var(--brand-orange-deep);
     font-weight: 300;
   }
-
+ 
   .counties-left p {
     color: var(--text-muted);
     font-size: 17px;
     line-height: 1.7;
     margin-bottom: 32px;
   }
-
+ 
   .counties-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
-
+ 
   .county-pill {
     padding: 16px 20px;
     background: var(--cream);
@@ -654,30 +654,30 @@
     cursor: pointer;
     font-weight: 500;
   }
-
+ 
   .county-pill:hover {
     background: var(--brand-blue);
     color: var(--warm-white);
     border-color: var(--brand-blue);
     transform: translateY(-2px);
   }
-
+ 
   /* ============ TESTIMONIAL ============ */
   .testimonial {
     padding: 120px 60px;
     background: var(--cream);
   }
-
+ 
   .testimonial-inner {
     max-width: 1280px;
     margin: 0 auto;
   }
-
+ 
   .testimonial-header {
     text-align: center;
     margin-bottom: 60px;
   }
-
+ 
   .testimonial-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -689,13 +689,13 @@
     letter-spacing: 0.18em;
     margin-bottom: 16px;
   }
-
+ 
   .testimonial-eyebrow .stars {
     color: var(--brand-orange);
     letter-spacing: 1px;
     font-size: 14px;
   }
-
+ 
   .testimonial-header h2 {
     font-family: 'Fraunces', serif;
     font-size: clamp(32px, 4vw, 48px);
@@ -705,12 +705,12 @@
     max-width: 700px;
     margin: 0 auto;
   }
-
+ 
   .testimonial-header h2 em {
     font-style: italic;
     color: var(--brand-orange-deep);
   }
-
+ 
   .testimonial-featured {
     background: white;
     border-radius: 24px;
@@ -721,7 +721,7 @@
     border: 1px solid var(--blue-100);
     position: relative;
   }
-
+ 
   .quote-mark {
     font-family: 'Fraunces', serif;
     font-size: 90px;
@@ -731,7 +731,7 @@
     margin-bottom: 10px;
     display: block;
   }
-
+ 
   .testimonial-featured blockquote {
     font-family: 'Fraunces', serif;
     font-size: clamp(20px, 2.4vw, 28px);
@@ -744,7 +744,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-
+ 
   .testimonial-featured cite {
     font-style: normal;
     font-size: 13px;
@@ -752,7 +752,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-
+ 
   .testimonial-featured cite strong {
     color: var(--brand-blue);
     font-weight: 600;
@@ -762,7 +762,7 @@
     text-transform: none;
     letter-spacing: 0;
   }
-
+ 
   .review-stars {
     display: inline-flex;
     gap: 2px;
@@ -770,13 +770,13 @@
     font-size: 16px;
     margin-bottom: 12px;
   }
-
+ 
   .reviews-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-
+ 
   .review-card {
     background: white;
     border-radius: 16px;
@@ -786,16 +786,16 @@
     display: flex;
     flex-direction: column;
   }
-
+ 
   .review-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-soft);
   }
-
+ 
   .review-card .review-stars {
     margin-bottom: 14px;
   }
-
+ 
   .review-card .review-text {
     font-size: 14.5px;
     color: var(--ink);
@@ -803,21 +803,21 @@
     margin-bottom: 18px;
     flex: 1;
   }
-
+ 
   .review-card .review-author {
     font-size: 13px;
     color: var(--brand-blue);
     font-weight: 600;
     margin-bottom: 2px;
   }
-
+ 
   .review-card .review-meta {
     font-size: 11px;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
-
+ 
   .reviews-source {
     text-align: center;
     margin-top: 32px;
@@ -826,19 +826,19 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
+ 
   .reviews-source strong {
     color: var(--brand-blue);
     font-weight: 600;
   }
-
+ 
   /* ============ CTA ============ */
   .final-cta {
     padding: 120px 60px;
     max-width: 1200px;
     margin: 0 auto;
   }
-
+ 
   .cta-box {
     background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-deep) 100%);
     border-radius: 32px;
@@ -848,26 +848,26 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .cta-box::before, .cta-box::after {
     content: '';
     position: absolute;
     border-radius: 50%;
     background: rgba(255,255,255,0.1);
   }
-
+ 
   .cta-box::before {
     top: -100px; left: -100px;
     width: 300px; height: 300px;
   }
-
+ 
   .cta-box::after {
     bottom: -150px; right: -50px;
     width: 400px; height: 400px;
   }
-
+ 
   .cta-box > * { position: relative; z-index: 1; }
-
+ 
   .cta-box h2 {
     font-family: 'Fraunces', serif;
     font-size: clamp(36px, 5vw, 56px);
@@ -875,7 +875,7 @@
     font-weight: 400;
     margin-bottom: 20px;
   }
-
+ 
   .cta-box p {
     font-size: 18px;
     opacity: 0.95;
@@ -884,7 +884,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-
+ 
   .btn-white {
     background: var(--warm-white);
     color: var(--brand-orange-deep);
@@ -898,20 +898,20 @@
     gap: 10px;
     transition: all 0.3s ease;
   }
-
+ 
   .btn-white:hover {
     transform: translateY(-2px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     color: var(--brand-blue);
   }
-
+ 
   /* ============ FOOTER ============ */
   footer {
     background: var(--brand-blue-darker);
     color: var(--blue-100);
     padding: 80px 60px 40px;
   }
-
+ 
   .footer-grid {
     max-width: 1400px;
     margin: 0 auto;
@@ -920,20 +920,20 @@
     gap: 60px;
     margin-bottom: 60px;
   }
-
+ 
   .footer-logo-card {
     background: var(--warm-white);
     padding: 18px 24px;
     border-radius: 14px;
     display: inline-block;
   }
-
+ 
   .footer-logo-card .brand-logo {
     height: 80px;
     width: auto;
     display: block;
   }
-
+ 
   .footer-brand p {
     margin-top: 20px;
     font-size: 14px;
@@ -941,7 +941,7 @@
     line-height: 1.7;
     max-width: 320px;
   }
-
+ 
   .footer-col h4 {
     font-family: 'Fraunces', serif;
     font-size: 16px;
@@ -949,7 +949,7 @@
     margin-bottom: 20px;
     font-weight: 500;
   }
-
+ 
   .footer-col ul { list-style: none; }
   .footer-col li { margin-bottom: 10px; }
   .footer-col a, .footer-col li {
@@ -959,7 +959,7 @@
     transition: color 0.3s ease;
   }
   .footer-col a:hover { color: var(--brand-orange); }
-
+ 
   .footer-bottom {
     max-width: 1400px;
     margin: 0 auto;
@@ -970,7 +970,7 @@
     font-size: 13px;
     opacity: 0.7;
   }
-
+ 
   /* Mockup badge */
   .mockup-badge {
     position: fixed;
@@ -989,7 +989,7 @@
     align-items: center;
     gap: 10px;
   }
-
+ 
   .mockup-badge::before {
     content: '';
     width: 8px; height: 8px;
@@ -997,7 +997,7 @@
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
-
+ 
   /* RESPONSIVE */
   @media (max-width: 968px) {
     nav { padding: 12px 24px; }
@@ -1016,7 +1016,7 @@
     footer { padding: 60px 24px 30px; }
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   }
-
+ 
   /* Scroll animations */
   .fade-in {
     opacity: 0;
@@ -1030,11 +1030,11 @@
 </style>
 </head>
 <body>
-
+ 
 <a id="top"></a>
-
+ 
 <div class="mockup-badge">DESIGN MOCKUP · For Andrew Scarfone</div>
-
+ 
 <nav>
   <a href="#top" class="nav-logo">
     <svg class="brand-logo" viewBox="0 0 340 80" xmlns="http://www.w3.org/2000/svg" aria-label="Custom Home Health, Palliative & Hospice" role="img">
@@ -1081,7 +1081,7 @@
     <li><a href="tel:2486292880" class="nav-cta">Call 248-629-2880</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
@@ -1097,7 +1097,7 @@
     <div class="hero-card-main">
       <!-- Full-bleed brand illustration: caregiver visiting senior at home -->
       <svg class="hero-illustration" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-
+ 
         <!-- Sky / wall background -->
         <defs>
           <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -1114,10 +1114,10 @@
             <stop offset="100%" stop-color="#FAA62C" stop-opacity="0"/>
           </radialGradient>
         </defs>
-
+ 
         <!-- Background wall -->
         <rect width="500" height="600" fill="url(#wallGrad)"/>
-
+ 
         <!-- Decorative dot-burst marks (logo echo, top corners) -->
         <g fill="#FAA62C" opacity="0.15">
           <circle cx="60" cy="80" r="3"/>
@@ -1129,10 +1129,10 @@
           <circle cx="410" cy="130" r="3"/>
           <circle cx="460" cy="50" r="2"/>
         </g>
-
+ 
         <!-- Warm glow behind the window -->
         <circle cx="350" cy="200" r="200" fill="url(#warmGlow)"/>
-
+ 
         <!-- Window frame -->
         <g>
           <rect x="280" y="80" width="160" height="220" rx="6" fill="#1B2F6B"/>
@@ -1148,7 +1148,7 @@
             <circle cx="420" cy="242" r="16"/>
           </g>
         </g>
-
+ 
         <!-- Small wall art frame (left) -->
         <g>
           <rect x="60" y="120" width="80" height="60" rx="3" fill="#FAA62C" opacity="0.3"/>
@@ -1156,11 +1156,11 @@
           <!-- Heart inside -->
           <path d="M93,148 C93,144 96,141 99,141 C101,141 103,142 104,144 C105,142 107,141 109,141 C112,141 115,144 115,148 C115,154 104,162 104,162 C104,162 93,154 93,148 Z" fill="#FAA62C"/>
         </g>
-
+ 
         <!-- Floor / horizon line -->
         <rect x="0" y="380" width="500" height="220" fill="#25408F"/>
         <line x1="0" y1="380" x2="500" y2="380" stroke="#FAA62C" stroke-width="2" opacity="0.4"/>
-
+ 
         <!-- Side table with flowers -->
         <g>
           <!-- Tabletop -->
@@ -1176,7 +1176,7 @@
           <circle cx="85" cy="335" r="5" fill="#FFEAC5"/>
           <circle cx="72" cy="338" r="5" fill="#FAA62C"/>
         </g>
-
+ 
         <!-- COUCH / SEATING -->
         <g>
           <!-- Couch back -->
@@ -1186,7 +1186,7 @@
           <!-- Couch shadow under -->
           <rect x="160" y="478" width="280" height="10" rx="5" fill="#1B2F6B" opacity="0.5"/>
         </g>
-
+ 
         <!-- PATIENT (seated on couch, right side) -->
         <g>
           <!-- Body / cardigan -->
@@ -1206,7 +1206,7 @@
           <!-- Patient arm reaching toward caregiver -->
           <path d="M315,438 Q295,442 285,448" stroke="#E08A0A" stroke-width="13" fill="none" stroke-linecap="round"/>
         </g>
-
+ 
         <!-- CAREGIVER (standing, blue scrubs, left of patient) -->
         <g>
           <!-- Body / scrubs -->
@@ -1227,12 +1227,12 @@
           <!-- Hands connecting -->
           <circle cx="287" cy="448" r="7" fill="#FFD89B"/>
         </g>
-
+ 
         <!-- Soft floor highlight under figures -->
         <ellipse cx="260" cy="538" rx="180" ry="8" fill="#FAA62C" opacity="0.12"/>
-
+ 
       </svg>
-
+ 
       <!-- Subtle gradient overlay for legibility if anything sits on top -->
       <div class="hero-card-glow"></div>
     </div>
@@ -1250,7 +1250,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TRUST -->
 <div class="trust-bar">
   <div class="trust-content">
@@ -1262,7 +1262,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-header fade-in">
@@ -1272,7 +1272,7 @@
     </div>
     <p>From skilled nursing to specialty cardiac care, our clinicians deliver expert, compassionate support in the comfort of your home — across nine Southeast Michigan counties.</p>
   </div>
-
+ 
   <div class="services-grid">
     <div class="service-card fade-in">
       <div class="service-icon">
@@ -1284,7 +1284,7 @@
       <p>Expert clinical care from registered nurses, delivered with the warmth of a trusted neighbor.</p>
       <a href="#" class="service-link">Learn more →</a>
     </div>
-
+ 
     <div class="service-card fade-in">
       <div class="service-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1296,7 +1296,7 @@
       <p>Rebuild strength and mobility with personalized recovery plans designed for life at home.</p>
       <a href="#" class="service-link">Learn more →</a>
     </div>
-
+ 
     <div class="service-card fade-in">
       <div class="service-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1307,7 +1307,7 @@
       <p>Regain independence in daily routines with hands-on guidance tailored to your environment.</p>
       <a href="#" class="service-link">Learn more →</a>
     </div>
-
+ 
     <div class="service-card fade-in">
       <div class="service-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1319,7 +1319,7 @@
       <p>Restore communication and swallowing function with compassionate, evidence-based therapy.</p>
       <a href="#" class="service-link">Learn more →</a>
     </div>
-
+ 
     <div class="service-card fade-in">
       <div class="service-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1330,7 +1330,7 @@
       <p>Advanced heart-health management from clinicians trained in complex cardiac conditions.</p>
       <a href="#" class="service-link">Learn more →</a>
     </div>
-
+ 
     <div class="service-card fade-in">
       <div class="service-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1345,7 +1345,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- DIFFERENCE -->
 <section class="difference" id="difference">
   <div class="difference-inner">
@@ -1353,7 +1353,7 @@
       <div class="section-eyebrow">The Custom Difference</div>
       <h2>Higher standards. <em>Better outcomes.</em> Elevated care.</h2>
     </div>
-
+ 
     <div class="difference-grid">
       <div class="diff-item fade-in">
         <span class="diff-number">01</span>
@@ -1373,7 +1373,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- COUNTIES -->
 <section class="counties" id="counties">
   <div class="counties-inner">
@@ -1396,11 +1396,11 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="testimonial-inner">
-
+ 
     <div class="testimonial-header fade-in">
       <div class="testimonial-eyebrow">
         <span class="stars">★★★★★</span>
@@ -1408,7 +1408,7 @@
       </div>
       <h2>Real stories from <em>real families.</em></h2>
     </div>
-
+ 
     <!-- Featured Review -->
     <div class="testimonial-featured fade-in">
       <span class="quote-mark">"</span>
@@ -1419,61 +1419,61 @@
         Referring Healthcare Professional · Google Review
       </cite>
     </div>
-
+ 
     <!-- Review Cards Grid -->
     <div class="reviews-grid">
-
+ 
       <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"I want to thank Elise and Saeeda Khan for the excellent home nursing they provided me during my knee replacement surgery recovery. They were both friendly, courteous and knowledgeable."</p>
         <div class="review-author">Randi Lynn Sinko</div>
         <div class="review-meta">Patient · Post-Surgical Recovery</div>
       </div>
-
+ 
       <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Maribeth and Carol have been wonderful working with my boyfriend who fractured his hip in a fall. So professional, competent and caring. They have really helped his healing process and road to recovery."</p>
         <div class="review-author">Esther Beneson</div>
         <div class="review-meta">Family Member · Hip Recovery</div>
       </div>
-
+ 
       <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"We have used Custom Home Health twice in the last year for my mom and we have been very happy. Everyone has been very nice to deal with but my mom's physical therapist (Celeste) and nurse (Leah) are fantastic!"</p>
         <div class="review-author">Amy G</div>
         <div class="review-meta">Family Member · Returning Client</div>
       </div>
-
+ 
       <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"I work as a nursing home Social Worker &amp; I've been working with Dion &amp; Cal at Custom HHC for many years sending them referrals. They are honestly two of the nicest people I have ever met. So easy to work with."</p>
         <div class="review-author">Kelly Weir</div>
         <div class="review-meta">Social Worker · Referral Partner</div>
       </div>
-
+ 
       <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"I want to thank Custom's staff for the prompt delivery of DME for a patient who was returning home under hospice services. Very professional staff, timely responses for services. Thank you so much for your compassion."</p>
         <div class="review-author">Pat Conley</div>
         <div class="review-meta">Healthcare Professional · Hospice</div>
       </div>
-
+ 
       <div class="review-card fade-in">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"My mom lost both her legs and Nurse Napoleon and PT Waseem provided exceptional care and patience for our mom with a lot of positive encouragement. I highly recommend this facility."</p>
         <div class="review-author">Crystale Mejia</div>
         <div class="review-meta">Family Member · Complex Care</div>
       </div>
-
+ 
     </div>
-
+ 
     <div class="reviews-source fade-in">
       Verified reviews from <strong>Google</strong>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="cta-box fade-in">
@@ -1482,7 +1482,7 @@
     <a href="tel:2486292880" class="btn-white">Call 248-629-2880 <span class="arrow">→</span></a>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -1556,7 +1556,7 @@
     <div>Privacy Practices · Accessibility</div>
   </div>
 </footer>
-
+ 
 <script>
   // Scroll-triggered fade-in animations
   const observer = new IntersectionObserver((entries) => {
@@ -1566,9 +1566,10 @@
       }
     });
   }, { threshold: 0.15 });
-
+ 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-
+ 
 </body>
 </html>
+ 
