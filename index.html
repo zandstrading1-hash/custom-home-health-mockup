@@ -9,24 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Brand colors sampled from the Custom logo */
-    --brand-blue: #3D4F97;        /* primary "custom" wordmark blue */
-    --brand-blue-dark: #2D3B73;   /* deeper hover/shadow variant */
-    --brand-navy: #1E2B66;        /* small accent dots */
-    --brand-orange: #F0A020;      /* burst icon + service tag orange */
-    --brand-orange-dark: #D88A0C; /* deeper orange for hover */
+    /* Brand palette — sampled from the Custom logo */
+    --brand-blue: #3D4F97;       /* "custom" wordmark */
+    --brand-blue-dark: #25408F;  /* center dot / deep accent */
+    --brand-blue-darker: #1B2F6B;
+    --brand-orange: #FAA62C;     /* burst icon + tagline */
+    --brand-orange-deep: #E08A0A;
 
-    /* Neutrals */
-    --cream: #faf7f0;
-    --warm-white: #fefcf7;
-    --ink: #1a1f3a;
-    --text-muted: #5a6080;
-    --line: rgba(61, 79, 151, 0.12);
-    --tint-blue: #eef0f9;         /* very light blue tint */
-    --tint-orange: #fdf3e0;       /* very light orange tint */
+    /* Neutrals tuned to complement the brand */
+    --blue-50: #f4f6fc;
+    --blue-100: #e3e8f5;
+    --blue-200: #c2cbe6;
+    --orange-50: #fff7e8;
+    --orange-100: #ffeac5;
 
-    --shadow-soft: 0 4px 24px rgba(30, 43, 102, 0.08);
-    --shadow-lift: 0 20px 60px rgba(30, 43, 102, 0.15);
+    --cream: #fdfaf3;
+    --warm-white: #ffffff;
+    --ink: #1a1f2e;
+    --text-muted: #5a6378;
+    --shadow-soft: 0 4px 24px rgba(37, 64, 143, 0.08);
+    --shadow-lift: 0 20px 60px rgba(37, 64, 143, 0.15);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,46 +45,30 @@
 
   .display { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; }
 
-  /* ============ LOGO MARK (inline SVG, reused) ============ */
-  .brand-lockup {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-  .brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
-  .brand-text {
-    font-family: 'Fraunces', serif;
-    font-size: 26px;
-    font-weight: 500;
-    color: var(--brand-blue);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .brand-tag {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: var(--brand-orange);
-    text-transform: uppercase;
-    margin-top: 3px;
-  }
-  .brand-tag .dot { color: var(--brand-navy); margin: 0 4px; }
-
   /* ============ NAV ============ */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 16px 60px;
-    background: rgba(254, 252, 247, 0.9);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(37, 64, 143, 0.08);
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo .brand-logo {
+    height: 64px;
+    width: auto;
+    display: block;
   }
 
   .nav-links {
@@ -94,7 +80,7 @@
 
   .nav-links a {
     text-decoration: none;
-    color: var(--brand-blue);
+    color: var(--brand-blue-dark);
     font-size: 14px;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -107,13 +93,13 @@
     bottom: -4px;
     left: 0;
     width: 0;
-    height: 1px;
+    height: 2px;
     background: var(--brand-orange);
     transition: width 0.3s ease;
   }
 
   .nav-links a:hover::after { width: 100%; }
-  .nav-links a:hover { color: var(--brand-orange); }
+  .nav-links a:hover { color: var(--brand-orange-deep); }
 
   .nav-cta {
     background: var(--brand-blue);
@@ -147,9 +133,21 @@
     right: -200px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--tint-blue) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--orange-100) 0%, transparent 70%);
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.7;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--blue-100) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.6;
   }
 
   .hero-content { position: relative; z-index: 2; }
@@ -165,7 +163,7 @@
     letter-spacing: 0.12em;
     margin-bottom: 28px;
     padding: 8px 16px;
-    background: var(--tint-blue);
+    background: var(--blue-100);
     border-radius: 100px;
   }
 
@@ -188,13 +186,11 @@
     font-weight: 400;
     color: var(--brand-blue);
     margin-bottom: 32px;
-    font-family: 'Fraunces', serif;
-    letter-spacing: -0.02em;
   }
 
   .hero h1 em {
     font-style: italic;
-    color: var(--brand-orange);
+    color: var(--brand-orange-deep);
     font-weight: 300;
   }
 
@@ -239,7 +235,7 @@
     background: transparent;
     color: var(--brand-blue);
     padding: 18px 36px;
-    border: 1.5px solid var(--line);
+    border: 1.5px solid var(--blue-200);
     border-radius: 100px;
     font-size: 15px;
     font-weight: 500;
@@ -254,7 +250,7 @@
 
   .btn-secondary:hover {
     border-color: var(--brand-blue);
-    background: var(--tint-blue);
+    background: var(--blue-50);
   }
 
   .arrow { transition: transform 0.3s ease; }
@@ -273,51 +269,32 @@
     right: 0;
     width: 90%;
     height: 100%;
-    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-navy) 100%);
+    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-darker) 100%);
     border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow-lift);
-    display: flex;
-    align-items: flex-end;
-    padding: 40px;
+    padding: 0;
   }
 
-  .hero-card-main::before {
-    content: '';
+  .hero-illustration {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .hero-card-glow {
+    position: absolute;
+    inset: 0;
     background:
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(240, 160, 32, 0.25) 0%, transparent 55%);
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 85% 80%, rgba(250,166,44,0.15) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 1;
   }
 
-  .hero-card-overlay {
-    position: relative;
-    color: var(--warm-white);
-    z-index: 2;
-  }
-
-  .hero-card-overlay .stat {
-    font-family: 'Fraunces', serif;
-    font-size: 72px;
-    line-height: 1;
-    font-weight: 300;
-    margin-bottom: 12px;
-  }
-
-  .hero-card-overlay .stat em {
-    font-style: italic;
-    color: var(--brand-orange);
-  }
-
-  .hero-card-overlay .stat-label {
-    font-size: 14px;
-    opacity: 0.9;
-    max-width: 280px;
-    line-height: 1.5;
-  }
-
-  /* Decorative burst (mimics logo motif) */
+  /* Decorative burst illustration — echoes the logo mark */
   .burst-decoration {
     position: absolute;
     top: 30px;
@@ -339,7 +316,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--blue-100);
     animation: float 4s ease-in-out infinite;
   }
 
@@ -351,7 +328,7 @@
   .float-icon {
     width: 48px;
     height: 48px;
-    background: var(--tint-orange);
+    background: var(--orange-100);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -374,9 +351,9 @@
   /* ============ TRUST BAR ============ */
   .trust-bar {
     padding: 40px 60px;
-    background: var(--tint-blue);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    background: var(--blue-50);
+    border-top: 1px solid var(--blue-100);
+    border-bottom: 1px solid var(--blue-100);
   }
 
   .trust-content {
@@ -428,8 +405,8 @@
 
   .section-eyebrow {
     font-size: 13px;
-    font-weight: 600;
-    color: var(--brand-orange);
+    font-weight: 500;
+    color: var(--brand-orange-deep);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 16px;
@@ -440,13 +417,11 @@
     line-height: 1.05;
     color: var(--brand-blue);
     font-weight: 400;
-    font-family: 'Fraunces', serif;
-    letter-spacing: -0.02em;
   }
 
   .section-header h2 em {
     font-style: italic;
-    color: var(--brand-orange);
+    color: var(--brand-orange-deep);
     font-weight: 300;
   }
 
@@ -464,7 +439,7 @@
 
   .service-card {
     background: var(--warm-white);
-    border: 1px solid var(--line);
+    border: 1px solid var(--blue-100);
     border-radius: 20px;
     padding: 40px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -477,7 +452,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--brand-blue), var(--brand-navy));
+    background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-darker));
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 0;
@@ -486,7 +461,6 @@
   .service-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lift);
-    border-color: transparent;
   }
 
   .service-card:hover::before { opacity: 1; }
@@ -494,20 +468,20 @@
   .service-card:hover h3,
   .service-card:hover p,
   .service-card:hover .service-link { color: var(--warm-white); }
-  .service-card:hover .service-icon { background: rgba(240, 160, 32, 0.25); color: var(--brand-orange); }
+  .service-card:hover .service-icon { background: rgba(250, 166, 44, 0.25); color: var(--brand-orange); }
 
   .service-card > * { position: relative; z-index: 1; }
 
   .service-icon {
     width: 56px;
     height: 56px;
-    background: var(--tint-orange);
+    background: var(--orange-100);
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 28px;
-    color: var(--brand-orange);
+    color: var(--brand-orange-deep);
     transition: all 0.4s ease;
   }
 
@@ -531,7 +505,7 @@
   .service-link {
     color: var(--brand-blue);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -553,8 +527,16 @@
     position: absolute;
     top: -100px; right: -100px;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, var(--brand-navy) 0%, transparent 60%);
+    background: radial-gradient(circle, var(--brand-blue-dark) 0%, transparent 60%);
     opacity: 0.6;
+  }
+
+  .difference::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -150px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(250,166,44,0.15) 0%, transparent 60%);
   }
 
   .difference-inner {
@@ -577,8 +559,6 @@
     font-weight: 400;
     max-width: 800px;
     margin: 0 auto;
-    font-family: 'Fraunces', serif;
-    letter-spacing: -0.02em;
   }
 
   .difference-header h2 em {
@@ -616,7 +596,7 @@
   }
 
   .diff-item p {
-    color: rgba(254, 252, 247, 0.75);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 15px;
     line-height: 1.7;
   }
@@ -641,13 +621,11 @@
     color: var(--brand-blue);
     margin-bottom: 24px;
     font-weight: 400;
-    font-family: 'Fraunces', serif;
-    letter-spacing: -0.02em;
   }
 
   .counties-left h2 em {
     font-style: italic;
-    color: var(--brand-orange);
+    color: var(--brand-orange-deep);
     font-weight: 300;
   }
 
@@ -667,7 +645,7 @@
   .county-pill {
     padding: 16px 20px;
     background: var(--cream);
-    border: 1px solid var(--line);
+    border: 1px solid var(--blue-100);
     border-radius: 12px;
     font-size: 15px;
     color: var(--brand-blue);
@@ -742,7 +720,7 @@
   }
 
   .cta-box {
-    background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-dark) 100%);
+    background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-deep) 100%);
     border-radius: 32px;
     padding: 80px 60px;
     text-align: center;
@@ -776,7 +754,6 @@
     line-height: 1.1;
     font-weight: 400;
     margin-bottom: 20px;
-    letter-spacing: -0.02em;
   }
 
   .cta-box p {
@@ -790,7 +767,7 @@
 
   .btn-white {
     background: var(--warm-white);
-    color: var(--brand-blue);
+    color: var(--brand-orange-deep);
     padding: 20px 40px;
     border-radius: 100px;
     font-size: 16px;
@@ -805,13 +782,13 @@
   .btn-white:hover {
     transform: translateY(-2px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    color: var(--brand-orange);
+    color: var(--brand-blue);
   }
 
   /* ============ FOOTER ============ */
   footer {
-    background: var(--brand-blue);
-    color: rgba(254, 252, 247, 0.85);
+    background: var(--brand-blue-darker);
+    color: var(--blue-100);
     padding: 80px 60px 40px;
   }
 
@@ -824,13 +801,23 @@
     margin-bottom: 60px;
   }
 
-  .footer-brand .brand-text { color: var(--warm-white); }
-  .footer-brand .brand-tag { color: var(--brand-orange); }
+  .footer-logo-card {
+    background: var(--warm-white);
+    padding: 18px 24px;
+    border-radius: 14px;
+    display: inline-block;
+  }
+
+  .footer-logo-card .brand-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+  }
 
   .footer-brand p {
     margin-top: 20px;
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.75;
     line-height: 1.7;
     max-width: 320px;
   }
@@ -845,8 +832,8 @@
 
   .footer-col ul { list-style: none; }
   .footer-col li { margin-bottom: 10px; }
-  .footer-col a {
-    color: rgba(254, 252, 247, 0.75);
+  .footer-col a, .footer-col li {
+    color: rgba(227, 232, 245, 0.75);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
@@ -857,7 +844,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 40px;
-    border-top: 1px solid rgba(254, 252, 247, 0.15);
+    border-top: 1px solid rgba(227, 232, 245, 0.1);
     display: flex;
     justify-content: space-between;
     font-size: 13px;
@@ -893,13 +880,11 @@
 
   /* RESPONSIVE */
   @media (max-width: 968px) {
-    nav { padding: 14px 24px; }
+    nav { padding: 12px 24px; }
+    .nav-logo .brand-logo { height: 48px; }
     .nav-links { display: none; }
-    .brand-text { font-size: 22px; }
-    .brand-mark { width: 32px; height: 32px; }
     .hero { padding: 120px 24px 60px; grid-template-columns: 1fr; gap: 40px; }
     .hero-visual { height: 400px; }
-    .hero-card-overlay .stat { font-size: 56px; }
     .trust-bar { padding: 30px 24px; }
     .trust-items { gap: 24px; }
     .services, .difference, .counties, .testimonial, .final-cta { padding: 80px 24px; }
@@ -925,57 +910,49 @@
 </head>
 <body>
 
-<!-- Reusable SVG logo mark (the burst icon from the Custom logo) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="custom-burst" viewBox="0 0 100 100">
-      <!-- Center navy dot -->
-      <circle cx="50" cy="50" r="3.5" fill="#1E2B66"/>
-      <!-- 8-point burst of orange dots, three rings, larger toward outside -->
-      <g fill="#F0A020">
-        <!-- Inner ring (8 dots) -->
-        <circle cx="50" cy="38" r="2.2"/>
-        <circle cx="58.5" cy="41.5" r="2.2"/>
-        <circle cx="62" cy="50" r="2.2"/>
-        <circle cx="58.5" cy="58.5" r="2.2"/>
-        <circle cx="50" cy="62" r="2.2"/>
-        <circle cx="41.5" cy="58.5" r="2.2"/>
-        <circle cx="38" cy="50" r="2.2"/>
-        <circle cx="41.5" cy="41.5" r="2.2"/>
-        <!-- Middle ring (8 dots) -->
-        <circle cx="50" cy="26" r="2.8"/>
-        <circle cx="67" cy="33" r="2.8"/>
-        <circle cx="74" cy="50" r="2.8"/>
-        <circle cx="67" cy="67" r="2.8"/>
-        <circle cx="50" cy="74" r="2.8"/>
-        <circle cx="33" cy="67" r="2.8"/>
-        <circle cx="26" cy="50" r="2.8"/>
-        <circle cx="33" cy="33" r="2.8"/>
-        <!-- Outer ring (8 dots) -->
-        <circle cx="50" cy="14" r="3.6"/>
-        <circle cx="75.5" cy="24.5" r="3.6"/>
-        <circle cx="86" cy="50" r="3.6"/>
-        <circle cx="75.5" cy="75.5" r="3.6"/>
-        <circle cx="50" cy="86" r="3.6"/>
-        <circle cx="24.5" cy="75.5" r="3.6"/>
-        <circle cx="14" cy="50" r="3.6"/>
-        <circle cx="24.5" cy="24.5" r="3.6"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
+<a id="top"></a>
 
 <div class="mockup-badge">DESIGN MOCKUP · For Andrew Scarfone</div>
 
 <nav>
-  <a href="#" class="brand-lockup" aria-label="Custom Home Health home">
-    <svg class="brand-mark"><use href="#custom-burst"/></svg>
-    <span>
-      <span class="brand-text">custom</span>
-      <span class="brand-tag">Home Health <span class="dot">•</span> Palliative <span class="dot">•</span> Hospice</span>
-    </span>
+  <a href="#top" class="nav-logo">
+    <svg class="brand-logo" viewBox="0 0 340 80" xmlns="http://www.w3.org/2000/svg" aria-label="Custom Home Health, Palliative & Hospice" role="img">
+      <!-- BURST ICON -->
+      <g transform="translate(40, 40)">
+        <circle cx="0" cy="0" r="3.2" fill="#25408F"/>
+        <circle cx="0" cy="-9" r="2.4" fill="#FAA62C"/>
+        <circle cx="0" cy="-18" r="3" fill="#FAA62C"/>
+        <circle cx="0" cy="-28" r="3.6" fill="#FAA62C"/>
+        <circle cx="0" cy="9" r="2.4" fill="#FAA62C"/>
+        <circle cx="0" cy="18" r="3" fill="#FAA62C"/>
+        <circle cx="0" cy="28" r="3.6" fill="#FAA62C"/>
+        <circle cx="-9" cy="0" r="2.4" fill="#FAA62C"/>
+        <circle cx="-18" cy="0" r="3" fill="#FAA62C"/>
+        <circle cx="-28" cy="0" r="3.6" fill="#FAA62C"/>
+        <circle cx="9" cy="0" r="2.4" fill="#FAA62C"/>
+        <circle cx="18" cy="0" r="3" fill="#FAA62C"/>
+        <circle cx="28" cy="0" r="3.6" fill="#FAA62C"/>
+        <circle cx="6.4" cy="-6.4" r="2.4" fill="#FAA62C"/>
+        <circle cx="12.7" cy="-12.7" r="3" fill="#FAA62C"/>
+        <circle cx="19.8" cy="-19.8" r="3.6" fill="#FAA62C"/>
+        <circle cx="-6.4" cy="-6.4" r="2.4" fill="#FAA62C"/>
+        <circle cx="-12.7" cy="-12.7" r="3" fill="#FAA62C"/>
+        <circle cx="-19.8" cy="-19.8" r="3.6" fill="#FAA62C"/>
+        <circle cx="6.4" cy="6.4" r="2.4" fill="#FAA62C"/>
+        <circle cx="12.7" cy="12.7" r="3" fill="#FAA62C"/>
+        <circle cx="19.8" cy="19.8" r="3.6" fill="#FAA62C"/>
+        <circle cx="-6.4" cy="6.4" r="2.4" fill="#FAA62C"/>
+        <circle cx="-12.7" cy="12.7" r="3" fill="#FAA62C"/>
+        <circle cx="-19.8" cy="19.8" r="3.6" fill="#FAA62C"/>
+      </g>
+      <!-- "custom" wordmark -->
+      <text x="90" y="48" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="500" fill="#3D4F97" letter-spacing="-0.5">custom</text>
+      <!-- Tagline -->
+      <text x="91" y="66" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#FAA62C" letter-spacing="1.2">HOME HEALTH <tspan fill="#25408F">·</tspan> PALLIATIVE <tspan fill="#25408F">·</tspan> HOSPICE</text>
+    </svg>
   </a>
   <ul class="nav-links">
+    <li><a href="#top">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#difference">Our Approach</a></li>
     <li><a href="#counties">Service Area</a></li>
@@ -997,15 +974,150 @@
   </div>
   <div class="hero-visual">
     <div class="hero-card-main">
-      <svg class="burst-decoration"><use href="#custom-burst"/></svg>
-      <div class="hero-card-overlay">
-        <div class="stat"><em>10+</em></div>
-        <div class="stat-label">Years of elevating expectations for home health care in Michigan</div>
-      </div>
+      <!-- Full-bleed brand illustration: caregiver visiting senior at home -->
+      <svg class="hero-illustration" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+
+        <!-- Sky / wall background -->
+        <defs>
+          <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3D4F97"/>
+            <stop offset="100%" stop-color="#1B2F6B"/>
+          </linearGradient>
+          <linearGradient id="windowLight" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FAA62C" stop-opacity="0.95"/>
+            <stop offset="60%" stop-color="#FFD89B" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#FFEAC5" stop-opacity="0.7"/>
+          </linearGradient>
+          <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FAA62C" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#FAA62C" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Background wall -->
+        <rect width="500" height="600" fill="url(#wallGrad)"/>
+
+        <!-- Decorative dot-burst marks (logo echo, top corners) -->
+        <g fill="#FAA62C" opacity="0.15">
+          <circle cx="60" cy="80" r="3"/>
+          <circle cx="80" cy="60" r="2.5"/>
+          <circle cx="100" cy="90" r="3"/>
+          <circle cx="50" cy="120" r="2.5"/>
+          <circle cx="430" cy="70" r="3.5"/>
+          <circle cx="450" cy="100" r="2.5"/>
+          <circle cx="410" cy="130" r="3"/>
+          <circle cx="460" cy="50" r="2"/>
+        </g>
+
+        <!-- Warm glow behind the window -->
+        <circle cx="350" cy="200" r="200" fill="url(#warmGlow)"/>
+
+        <!-- Window frame -->
+        <g>
+          <rect x="280" y="80" width="160" height="220" rx="6" fill="#1B2F6B"/>
+          <rect x="290" y="90" width="140" height="200" rx="3" fill="url(#windowLight)"/>
+          <!-- Window cross -->
+          <line x1="360" y1="90" x2="360" y2="290" stroke="#1B2F6B" stroke-width="4"/>
+          <line x1="290" y1="190" x2="430" y2="190" stroke="#1B2F6B" stroke-width="4"/>
+          <!-- Soft outdoor silhouette (trees) -->
+          <g fill="#3D4F97" opacity="0.4">
+            <circle cx="310" cy="240" r="22"/>
+            <circle cx="335" cy="245" r="18"/>
+            <circle cx="395" cy="248" r="20"/>
+            <circle cx="420" cy="242" r="16"/>
+          </g>
+        </g>
+
+        <!-- Small wall art frame (left) -->
+        <g>
+          <rect x="60" y="120" width="80" height="60" rx="3" fill="#FAA62C" opacity="0.3"/>
+          <rect x="66" y="126" width="68" height="48" rx="2" fill="#FFEAC5" opacity="0.6"/>
+          <!-- Heart inside -->
+          <path d="M93,148 C93,144 96,141 99,141 C101,141 103,142 104,144 C105,142 107,141 109,141 C112,141 115,144 115,148 C115,154 104,162 104,162 C104,162 93,154 93,148 Z" fill="#FAA62C"/>
+        </g>
+
+        <!-- Floor / horizon line -->
+        <rect x="0" y="380" width="500" height="220" fill="#25408F"/>
+        <line x1="0" y1="380" x2="500" y2="380" stroke="#FAA62C" stroke-width="2" opacity="0.4"/>
+
+        <!-- Side table with flowers -->
+        <g>
+          <!-- Tabletop -->
+          <ellipse cx="80" cy="395" rx="55" ry="8" fill="#1B2F6B"/>
+          <rect x="55" y="395" width="50" height="80" fill="#1B2F6B"/>
+          <!-- Vase -->
+          <path d="M65,360 Q60,380 65,395 L95,395 Q100,380 95,360 Z" fill="#FAA62C"/>
+          <!-- Flowers / stems -->
+          <line x1="80" y1="360" x2="78" y2="330" stroke="#3D4F97" stroke-width="2" opacity="0.6"/>
+          <line x1="80" y1="360" x2="85" y2="335" stroke="#3D4F97" stroke-width="2" opacity="0.6"/>
+          <line x1="80" y1="360" x2="72" y2="338" stroke="#3D4F97" stroke-width="2" opacity="0.6"/>
+          <circle cx="78" cy="330" r="6" fill="#FAA62C"/>
+          <circle cx="85" cy="335" r="5" fill="#FFEAC5"/>
+          <circle cx="72" cy="338" r="5" fill="#FAA62C"/>
+        </g>
+
+        <!-- COUCH / SEATING -->
+        <g>
+          <!-- Couch back -->
+          <rect x="160" y="395" width="280" height="50" rx="14" fill="#FAA62C" opacity="0.85"/>
+          <!-- Couch seat (lighter front) -->
+          <rect x="155" y="430" width="290" height="50" rx="12" fill="#FFD89B"/>
+          <!-- Couch shadow under -->
+          <rect x="160" y="478" width="280" height="10" rx="5" fill="#1B2F6B" opacity="0.5"/>
+        </g>
+
+        <!-- PATIENT (seated on couch, right side) -->
+        <g>
+          <!-- Body / cardigan -->
+          <path d="M310,440 Q310,415 335,415 Q360,415 360,440 L362,478 L308,478 Z" fill="#E08A0A"/>
+          <!-- Neckline -->
+          <path d="M325,415 Q335,420 345,415 L342,425 Q335,428 328,425 Z" fill="#FFEAC5"/>
+          <!-- Head with soft features -->
+          <circle cx="335" cy="395" r="20" fill="#FFD89B"/>
+          <!-- Hair (gray/silver) -->
+          <path d="M315,390 Q318,375 335,373 Q352,375 355,390 Q355,382 335,380 Q318,382 315,390 Z" fill="#e8edf5"/>
+          <!-- Glasses -->
+          <circle cx="328" cy="395" r="4" fill="none" stroke="#1B2F6B" stroke-width="1.5"/>
+          <circle cx="343" cy="395" r="4" fill="none" stroke="#1B2F6B" stroke-width="1.5"/>
+          <line x1="332" y1="395" x2="339" y2="395" stroke="#1B2F6B" stroke-width="1.5"/>
+          <!-- Subtle smile -->
+          <path d="M329,403 Q335,407 341,403" stroke="#1B2F6B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Patient arm reaching toward caregiver -->
+          <path d="M315,438 Q295,442 285,448" stroke="#E08A0A" stroke-width="13" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- CAREGIVER (standing, blue scrubs, left of patient) -->
+        <g>
+          <!-- Body / scrubs -->
+          <path d="M195,450 Q195,425 225,425 Q255,425 255,450 L260,540 L190,540 Z" fill="#3D4F97"/>
+          <!-- V-neck collar -->
+          <path d="M215,425 L225,445 L235,425 Z" fill="#1B2F6B"/>
+          <!-- Head -->
+          <circle cx="225" cy="405" r="20" fill="#FFD89B"/>
+          <!-- Hair -->
+          <path d="M205,400 Q208,385 225,383 Q242,385 245,400 Q245,388 225,386 Q208,388 205,400 Z" fill="#1B2F6B"/>
+          <!-- Subtle smile -->
+          <path d="M219,413 Q225,417 231,413" stroke="#1B2F6B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Stethoscope -->
+          <path d="M218,432 Q214,445 220,455 M232,432 Q236,445 230,455 M220,455 Q225,460 230,455" stroke="#FAA62C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="225" cy="458" r="4" fill="#FAA62C"/>
+          <!-- Caregiver arm reaching toward patient -->
+          <path d="M252,448 Q272,448 285,448" stroke="#3D4F97" stroke-width="13" fill="none" stroke-linecap="round"/>
+          <!-- Hands connecting -->
+          <circle cx="287" cy="448" r="7" fill="#FFD89B"/>
+        </g>
+
+        <!-- Soft floor highlight under figures -->
+        <ellipse cx="260" cy="538" rx="180" ry="8" fill="#FAA62C" opacity="0.12"/>
+
+      </svg>
+
+      <!-- Subtle gradient overlay for legibility if anything sits on top -->
+      <div class="hero-card-glow"></div>
     </div>
     <div class="hero-card-float">
       <div class="float-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F0A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E08A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/>
           <polyline points="12 6 12 12 16 14"/>
         </svg>
@@ -1189,13 +1301,39 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="#" class="brand-lockup">
-        <svg class="brand-mark"><use href="#custom-burst"/></svg>
-        <span>
-          <span class="brand-text">custom</span>
-          <span class="brand-tag">Home Health <span class="dot">•</span> Palliative <span class="dot">•</span> Hospice</span>
-        </span>
-      </a>
+      <div class="footer-logo-card">
+        <svg class="brand-logo" viewBox="0 0 340 80" xmlns="http://www.w3.org/2000/svg" aria-label="Custom Home Health, Palliative & Hospice" role="img">
+          <g transform="translate(40, 40)">
+            <circle cx="0" cy="0" r="3.2" fill="#25408F"/>
+            <circle cx="0" cy="-9" r="2.4" fill="#FAA62C"/>
+            <circle cx="0" cy="-18" r="3" fill="#FAA62C"/>
+            <circle cx="0" cy="-28" r="3.6" fill="#FAA62C"/>
+            <circle cx="0" cy="9" r="2.4" fill="#FAA62C"/>
+            <circle cx="0" cy="18" r="3" fill="#FAA62C"/>
+            <circle cx="0" cy="28" r="3.6" fill="#FAA62C"/>
+            <circle cx="-9" cy="0" r="2.4" fill="#FAA62C"/>
+            <circle cx="-18" cy="0" r="3" fill="#FAA62C"/>
+            <circle cx="-28" cy="0" r="3.6" fill="#FAA62C"/>
+            <circle cx="9" cy="0" r="2.4" fill="#FAA62C"/>
+            <circle cx="18" cy="0" r="3" fill="#FAA62C"/>
+            <circle cx="28" cy="0" r="3.6" fill="#FAA62C"/>
+            <circle cx="6.4" cy="-6.4" r="2.4" fill="#FAA62C"/>
+            <circle cx="12.7" cy="-12.7" r="3" fill="#FAA62C"/>
+            <circle cx="19.8" cy="-19.8" r="3.6" fill="#FAA62C"/>
+            <circle cx="-6.4" cy="-6.4" r="2.4" fill="#FAA62C"/>
+            <circle cx="-12.7" cy="-12.7" r="3" fill="#FAA62C"/>
+            <circle cx="-19.8" cy="-19.8" r="3.6" fill="#FAA62C"/>
+            <circle cx="6.4" cy="6.4" r="2.4" fill="#FAA62C"/>
+            <circle cx="12.7" cy="12.7" r="3" fill="#FAA62C"/>
+            <circle cx="19.8" cy="19.8" r="3.6" fill="#FAA62C"/>
+            <circle cx="-6.4" cy="6.4" r="2.4" fill="#FAA62C"/>
+            <circle cx="-12.7" cy="12.7" r="3" fill="#FAA62C"/>
+            <circle cx="-19.8" cy="19.8" r="3.6" fill="#FAA62C"/>
+          </g>
+          <text x="90" y="48" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="500" fill="#3D4F97" letter-spacing="-0.5">custom</text>
+          <text x="91" y="66" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#FAA62C" letter-spacing="1.2">HOME HEALTH <tspan fill="#25408F">·</tspan> PALLIATIVE <tspan fill="#25408F">·</tspan> HOSPICE</text>
+        </svg>
+      </div>
       <p>Elevating expectations. Elevated care. Serving Southeast Michigan families with compassionate, expert home health services since 2012.</p>
     </div>
     <div class="footer-col">
